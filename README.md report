@@ -1,0 +1,12 @@
+CIPHER // BREACH
+            FOR LEVEL 1
+A console based C++ game where you decrypt secret words hidden with a Caesar Cipher.
+HOW TO PLAY A GAME (LEVEL 1)
+Run the program. The title screen appears and MISSSION 01 starts.
+A Cipher word is shown for example: KHOOR.
+Shift each letter backward by 3 to find the original word (KHOOR --> HELLO).
+Type your answer and press Enter( upper or lower case both work)
+You start with 3 lives and 30 points.
+Each wrong answer costs 1 life and 10 points.
+A correct answer completes the mission.
+At the end type yes to play again or no to quit.

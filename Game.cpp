@@ -81,6 +81,14 @@ int level_1() {
 			cout << "\n";
 
 		}
+		 if (lives == 0) {
+
+            cout << "\n\n================================";
+            cout << "\n             GAME OVER";
+            cout << "\n================================";
+
+            break;
+        }
 	}
 
 	return totalScore;

@@ -1,12 +1,131 @@
-CIPHER // BREACH
-            FOR LEVEL 1
-A console based C++ game where you decrypt secret words hidden with a Caesar Cipher.
-HOW TO PLAY A GAME (LEVEL 1)
-Run the program. The title screen appears and MISSSION 01 starts.
-A Cipher word is shown for example: KHOOR.
-Shift each letter backward by 3 to find the original word (KHOOR --> HELLO).
-Type your answer and press Enter( upper or lower case both work)
-You start with 3 lives and 30 points.
-Each wrong answer costs 1 life and 10 points.
-A correct answer completes the mission.
-At the end type yes to play again or no to quit.
+# CIPHER // BREACH
+### The Ultimate Crypto Game
+
+## About the Game
+The game challenges players to decrypt encrypted words and intercepted secret messages using different encryption techniques. Players must solve each challenge correctly while managing their limited lives and score to complete their missions.
+
+## Objective
+The main objective is to successfully decrypt the given words and secret messages to progress through the game levels. Each challenge requires logical thinking and an understanding of the encryption methods used.
+
+## Getting Started
+
+### Requirements
+- C++ compiler (Microsoft Visual C++).
+- An IDE or code editor, such as Microsoft Visual Studio.
+
+### Installation and Execution
+
+1. Running the Game
+1. Clone or download the repository.
+2. Open the project in Microsoft Visual Studio.
+3. Build the project using Build → Build Solution.
+4. Run the program using Ctrl + F5.
+
+## How to Play
+
+1. Run the game to access the main menu.
+2. Read the encrypted word or intercepted message displayed on the screen.
+3. Follow the provided hints and encryption information.
+4. Enter your decrypted answer when prompted.
+5. Correct answers allow you to progress to the next challenge.
+6. Incorrect answers result in the loss of one life and 10 points.
+7. Complete all missions to finish the game.
+8. When the game ends, enter `yes` if you want to play again or `no` to exit.
+
+**Important:** Enter your complete decrypted answer. Level 3 accepts messages with spaces and checks answers without distinguishing between uppercase and lowercase letters.
+
+## Game Levels
+
+### Level 1 – Caesar Cipher
+In the first level, the player must decrypt a randomly selected secret word.
+
+**How it works:**
+- A secret word is randomly selected from a collection of 10 predefined words.
+- Each letter is shifted forward by 3 positions in the alphabet.
+- The player must shift each letter backward by 3 positions to recover the original word.
+- A hint is provided during gameplay.
+
+### Level 3 – Double Agent
+
+In this level, the player must decrypt four intercepted messages. Each message is protected by two encryption layers.
+
+**Secret Messages:**
+
+1. ATTACK AT MIDNIGHT
+2. TRUST NO ONE
+3. FIND THE TRAITOR
+4. THE AGENT IS COMPROMISED
+
+**Encryption Layers:**
+
+**Layer 1 – Reverse Cipher**
+The original message is reversed character by character, including spaces.
+
+**Layer 2 – Mathematical Cipher**
+The reversed message is encrypted using the formula:
+
+`E(x) = (a × x + b) mod 26`
+Where:
+- `x` represents the numerical position of a letter.
+- `a` is the multiplication key.
+- `b` is the addition key.
+- Alphabet positions range from A = 0 to Z = 25.
+- Spaces are preserved without encryption.
+
+**Encryption Keys:**
+
+| Mission | Multiplication Key (a) | Addition Key (b) |
+|---|---:|---:|
+| 1 | 3 | 5 |
+| 2 | 5 | 7 |
+| 3 | 7 | 11 |
+| 4 | 9 | 4 |
+
+The encrypted messages are generated automatically during gameplay.
+
+**How to solve the challenges:**
+1. Use the displayed mathematical formula and keys to decrypt first encryption layer.
+2. then Reverse the mathematical encryption.
+3. Reverse the resulting message to recover the original text.
+4. Enter the complete decrypted message.
+
+Correct answers allow the player to proceed to the next mission.
+
+## Scoring and Lives
+
+| Game Event | Effect |
+|---|---|
+| Starting Level 1 | +30 points |
+| Entering Level 3 | +30 points |
+| Incorrect answer | -10 points |
+| Incorrect answer | -1 life |
+| Correct answer | Progress to the next challenge |
+
+**Lives:**
+- The player starts Level 1 with 3 lives.
+- Level 3 initializes another 3 lives, shared across its four missions.
+- Losing all lives results in Game Over.
+
+The score carries forward from Level 1 to Level 3.
+
+## Ending the Game
+
+The game ends when:
+- The player loses all available lives.
+- The player completes the available missions and chooses not to replay.
+
+After a game session, the player can enter `yes` to start a new game or `no` to exit.
+
+## Current Implementation
+
+The current version includes:
+- Level 1 – Caesar Cipher
+- Level 3 – Double Agent
+
+Level 2 is not included in the supplied source code.
+
+---
+
+**CIPHER // BREACH**
+
+*Decrypt the message. Breach the system. Complete the mission.*

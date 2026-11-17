@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="../openendlab/openendlab.vcxproj" Id="8640745f-b26f-4225-b4c6-d27936aee1ea" />
+</Solution>

@@ -80,7 +80,7 @@ int level_1() {
             cout << "+------------------------------------------------+\n";
             cout << "\n";
         }
-        if (lives == 0) {
+        if (lives <= 0) {
             cout << "\n";
             cout << "**************************************************\n";
             cout << "*                  GAME OVER                     *\n";
@@ -198,7 +198,7 @@ int level_3(int totalScore) {
                 cout << "\nRemaining lives: " << lives;
                 cout << "\nCurrent score: " << totalScore;
 
-                if (lives == 0) {
+                if (lives <= 0) {
 
                     cout << "\n\n================================";
                     cout << "\n             GAME OVER";
@@ -235,7 +235,7 @@ int level_3(int totalScore) {
 
 int main() {
 
-    srand(static_cast<unsigned int>(time(0)));
+    srand(time(0));
 
     string playAgain;
 

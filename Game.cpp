@@ -92,6 +92,109 @@ int level_1() {
     return totalScore;
 }
 
+
+
+bool level02(int& totalScore)
+{
+    totalScore += 30;
+    int lives = 3;
+    string playerGuess;
+
+    string secretWord[10] = {
+        "MANIFESTING", "COOL", "SPLENDID", "FIRE", "LOVELY",
+        "ICONIC", "ONLINE", "CLASSY", "SWEET", "DEVELOPMENT"
+    };
+
+    string key[10] = {
+        "CREAMY", "ROYAL", "BEST", "EFFORTLESS", "PERFECT",
+        "WORTH", "DIVINE", "BRILLIANT", "BREATHTAKING", "MAGICAL"
+    };
+
+    // Randomly select a word
+    int randomIndex = rand() % 10;
+
+    string realWord = secretWord[randomIndex];
+    string keys = key[randomIndex];
+    string encryptedWord = "";
+
+    // Vigenere Cipher Encryption
+    for (int i = 0; i < realWord.length(); i++)
+    {
+        char letter = realWord[i];
+        char keyLetter = keys[i % keys.length()];
+
+        int plainValue = letter - 'A';
+        int keyValue = keyLetter - 'A';
+
+        int encryptedValue = (plainValue + keyValue) % 26;
+
+        char encryptedLetter = encryptedValue + 'A';
+
+        encryptedWord += encryptedLetter;
+    }
+
+    // Game Interface
+    cout << "\n";
+    cout << "==================================================\n";
+    cout << "                  LEVEL 02                        \n";
+    cout << "                 VIGENERE CIPHER                   \n";
+    cout << "==================================================\n";
+
+    while (lives > 0)
+    {
+        cout << "\nEncrypted Message: " << encryptedWord << endl;
+        cout << "| Secret Key: " << keys << endl;
+        cout << "| HINT: Use Vigenere Cipher to decode.\n";
+
+        cout << "Enter decrypted word: ";
+        cin >> playerGuess;
+
+        // Convert player's answer to uppercase
+        for (int i = 0; i < playerGuess.length(); i++)
+        {
+            playerGuess[i] = toupper(playerGuess[i]);
+        }
+
+        if (playerGuess == realWord)
+        {
+            cout << "\nEXCELLENT! You decrypted the word correctly.\n";
+
+            cout << "\n+------------------------------------------------+\n";
+            cout << "|                 AGENT STATUS                   |\n";
+            cout << "+------------------------------------------------+\n";
+            cout << "| SCORE : " << totalScore << endl;
+            cout << "| LIVES : " << lives << endl;
+            cout << "+------------------------------------------------+\n";
+
+            cout << "\n>>> MOVING TO LEVEL 03 <<<\n";
+
+            return true;
+        }
+        else
+        {
+            lives--;
+            totalScore -= 10;
+
+            cout << "\n+------------------------------------------------+\n";
+            cout << "|                 AGENT STATUS                   |\n";
+            cout << "+------------------------------------------------+\n";
+            cout << "| Incorrect answer!\n";
+            cout << "| SCORE : " << totalScore << endl;
+            cout << "| LIVES : " << lives << endl;
+            cout << "+------------------------------------------------+\n";
+        }
+    }
+
+    cout << "\n";
+    cout << "**************************************************\n";
+    cout << "*                  GAME OVER                     *\n";
+    cout << "**************************************************\n";
+
+    return false;
+}
+
+
+
 int level_3(int totalScore) {
     cin.ignore();
     totalScore += 30;
@@ -165,7 +268,7 @@ int level_3(int totalScore) {
 
         cout << "\n| Encrypted message: " << encryptedMessage << " |";
 
-        
+
 
         cout << "\n\nFormula: E(x) = (ax + b) mod 26";
         cout << "\nMultiplication key: " << a[i];
@@ -256,12 +359,17 @@ int main() {
 
         int totalScore = 0;
 
-        totalScore += level_1();
-        if (totalScore > 0) {
-            totalScore = level_3(totalScore);
-        }  
 
-        cout << "\nFinal Score: " << totalScore;
+
+        totalScore = level_1();
+
+        if (totalScore > 0)
+        {
+            if (level02(totalScore))
+            {
+                totalScore = level_3(totalScore);
+            }
+        }
 
         // asking user if he wants to play again or not
         cout << "\n       [ PLAY AGAIN? YES / NO ]\n";
